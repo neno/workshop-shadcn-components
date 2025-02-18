@@ -3,11 +3,11 @@ import { cn } from "@/lib/utils"
 import * as React from "react"
 
 // ✅ Extend the variant type
-interface SuccessButtonProps extends Omit<ButtonProps, "variant"> {
+interface MDButtonProps extends Omit<ButtonProps, "variant"> {
   variant?: "success" | ButtonProps["variant"] // Add "success" while keeping existing variants
 }
 
-const SuccessButton = React.forwardRef<HTMLButtonElement, SuccessButtonProps>(
+const MDButton = React.forwardRef<HTMLButtonElement, MDButtonProps>(
   ({ className, variant = "success", ...props }, ref) => {
     return (
       <Button
@@ -20,6 +20,6 @@ const SuccessButton = React.forwardRef<HTMLButtonElement, SuccessButtonProps>(
   }
 )
 
-SuccessButton.displayName = "SuccessButton"
+MDButton.displayName = "MDButton"
 
-export { SuccessButton }
+export { MDButton }
