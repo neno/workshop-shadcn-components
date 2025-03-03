@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { Button } from "./components/ui/button";
-
+import { ProcessingInfo } from "./components/processinginfo/processinginfo";
 import "./index.css";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 grid gap-8">
       <div className="w-1/4 mx-auto grid gap-4">
         <Button>Default Button</Button>
         <Button className="bg-blue-500">Custom Styled Button</Button>
@@ -36,6 +36,7 @@ function App() {
           </form>
         </div>
       </div>
+      <ProcessingInfo />
     </div>
   );
 }
