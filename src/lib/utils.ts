@@ -17,7 +17,8 @@ export function getCurrentLocale() {
   return DEFAULT_CURRENT_LOCALE;
 }
 
-export function getDate(date: string, locale: string) {
+// TODO: use maybe day.js or date-fns
+export function getFormattedDate(date: string, locale: string): string {
   return new Date(date).toLocaleDateString(locale ?? DEFAULT_CURRENT_LOCALE, {
     year: "numeric",
     month: "2-digit",
@@ -25,11 +26,12 @@ export function getDate(date: string, locale: string) {
   });
 }
 
-export function getTime(date: string, locale: string) {
+// TODO: use maybe day.js or date-fns
+export function getFormattedTime(date: string, locale: string): string {
   return new Date(date).toLocaleTimeString(locale ?? DEFAULT_CURRENT_LOCALE, {
     hour: "2-digit",
     minute: "2-digit",
-    second: "2-digit",
+    // second: "2-digit",
   });
 }
 
@@ -41,8 +43,14 @@ export function mapProcessingInfoData(data: ProcessingInfoDataRaw) {
     const documentDefinitionName =
       curr[`documentDefinitionName${DEFAULT_CURRENT_LANG}`];
     const productName = curr[`productName${DEFAULT_CURRENT_LANG}`];
-    const createdDate = getDate(curr.createdDate, DEFAULT_CURRENT_LOCALE);
-    const createdTime = getTime(curr.createdDate, DEFAULT_CURRENT_LOCALE);
+    const createdDate = getFormattedDate(
+      curr.createdDate,
+      DEFAULT_CURRENT_LOCALE
+    );
+    const createdTime = getFormattedTime(
+      curr.createdDate,
+      DEFAULT_CURRENT_LOCALE
+    );
     const type = curr.type;
 
     for (const item of curr.items) {
