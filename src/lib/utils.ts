@@ -38,6 +38,8 @@ export function mapProcessingInfoData(data: ProcessingInfoDataRaw) {
     const transmissionReference = curr.transmissionReference;
     const documentReference =
       curr[`documentDefinitionName${DEFAULT_CURRENT_LANG}`];
+    const documentDefinitionName =
+      curr[`documentDefinitionName${DEFAULT_CURRENT_LANG}`];
     const productName = curr[`productName${DEFAULT_CURRENT_LANG}`];
     const createdDate = getDate(curr.createdDate, DEFAULT_CURRENT_LOCALE);
     const createdTime = getTime(curr.createdDate, DEFAULT_CURRENT_LOCALE);
@@ -48,12 +50,12 @@ export function mapProcessingInfoData(data: ProcessingInfoDataRaw) {
       acc.push({
         transmissionReference,
         documentReference,
+        documentDefinitionName,
         productName,
         createdDate,
         createdTime,
         type,
         status,
-        documentDefinitionName: "",
       });
     }
 
